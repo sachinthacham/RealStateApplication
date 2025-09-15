@@ -1,5 +1,5 @@
 import { useState } from 'react';
-//import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 //import OAuth from '../components/OAuth';
 
 interface FormData {
@@ -19,7 +19,7 @@ export default function SignUp() {
   });
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleChange = (e:any) => {
     setFormData({
@@ -48,7 +48,7 @@ export default function SignUp() {
       }
       setLoading(false);
       setError(null);
-      //navigate('/sign-in');
+      navigate('/sign-in');
     } catch (error) {
       setLoading(false);
       //setError(error.message);
@@ -120,11 +120,11 @@ export default function SignUp() {
         
         <div className="text-center mt-8 pt-5 border-t border-gray-100">
           <p className="text-gray-600">Already have an account?</p>
-          {/* <Link to={'/sign-in'}>
+          <Link to={'/sign-in'}>
             <span className="text-blue-600 hover:text-blue-700 font-medium inline-block mt-1 transition-colors duration-200">
               Sign in now
             </span>
-          </Link> */}
+          </Link>
         </div>
         
         {error && (
